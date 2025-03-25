@@ -31,8 +31,10 @@ function SurveyPage() {
 
       try {
         const response = await axios.post(
-          "https://guest-opinion-app-backend.onrender.com/emails/verify",
-          { token }
+          `${import.meta.env.VITE_BACKEND_URL}/emails/verify`,
+          {
+            token,
+          }
         );
 
         // Backend responded with status 200 and token is valid
@@ -89,15 +91,12 @@ function SurveyPage() {
       //   .catch((err) => console.error(err));
 
       try {
-        await axios.post(
-          "https://guest-opinion-app-backend.onrender.com/emails/survey",
-          {
-            date,
-            email,
-            surveyData,
-            token,
-          }
-        );
+        await axios.post(`${import.meta.env.VITE_BACKEND_URL}/emails/survey`, {
+          date,
+          email,
+          surveyData,
+          token,
+        });
         setStatus("used");
         alert("Survey submitted successfully!");
       } catch (error) {

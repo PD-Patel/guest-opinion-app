@@ -14,7 +14,8 @@ function App() {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
-
+  const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
+  console.log(BACKEND_URL);
   // Adding email address
   const AddEmail = (e) => {
     e.preventDefault();
@@ -42,7 +43,7 @@ function App() {
     e.preventDefault();
 
     await axios
-      .post("https://guest-opinion-app-backend.onrender.com/emails/add", {
+      .post(`${import.meta.env.VITE_BACKEND_URL}/emails/add`, {
         emails: emailList,
       })
       .then((res) =>
