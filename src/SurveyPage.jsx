@@ -109,7 +109,7 @@ function SurveyPage() {
   return (
     <div>
       <Header>
-        <img src="./daysInnLogo.png" alt="Days Inn Logo" />
+        <img src="./vite.png" alt="Days Inn Logo" />
       </Header>
       {status === "loading" && <p>Verifying token...</p>}
 
@@ -237,12 +237,13 @@ const CheckboxContainer = styled.div`
   input {
     margin-right: 10px;
 
-    width: 30px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
   }
 
   label {
-    font-size: 19px;
+    font-size: 15px;
+    margin-top: 3px;
     font-weight: 600;
   }
 `;
@@ -257,6 +258,8 @@ const AdditionalFeedbackContainer = styled.div`
     height: 150px;
     resize: none;
     margin-top: 10px;
+    padding: 10px;
+    font-size: 18px;
   }
 `;
 
@@ -275,6 +278,7 @@ const SubmitButton = styled.button`
 
 const Message = styled.div`
   padding: 20px;
+  width: 100%;
   text-align: center;
   color: ${(props) => props.color || "#333"};
   background-color: ${(props) => props.bg || "#f0f0f0"};
